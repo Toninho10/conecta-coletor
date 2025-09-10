@@ -108,7 +108,7 @@
 (() => {
   // ====== CONFIGURE AQUI ======
   // URL do Web App do Google Apps Script (deploy "Qualquer pessoa")
-  const ENDPOINT = "https://script.google.com/macros/s/AKfycbxY8r4QLg2d58fReqxY_i15O1l1JTVhE03BgoQZcrEbk90rsp03A23Y3l0YVcDw1ZaErQ/exec";
+  const ENDPOINT = "https://script.google.com/macros/s/SEU_DEPLOY_ID/exec";
   // ============================
 
   const el = id => document.getElementById(id);
@@ -347,7 +347,6 @@
   async function saveToBackend(obj){
     try{
       const res = await postToBackend({ action:'collect', data: obj });
-      // Apps Script aceita sem CORS; não precisamos ler body para sucesso
       if(!res.ok) throw new Error('HTTP '+res.status);
       setStatus('Salvo no backend.');
     }catch(e){ setStatus('Falha no envio: '+e.message, false); }
